@@ -20,6 +20,7 @@ Demonstrar a configuração de um ambiente Linux com servidor web Apache2, banco
 - Um usuário pode possuir várias tarefas (1:N).
 
 ## Funcionalidades (CRUD)
+
 ### Usuário
 - Cadastrar usuário
 - Listar usuários
@@ -33,12 +34,11 @@ Demonstrar a configuração de um ambiente Linux com servidor web Apache2, banco
 - Excluir tarefa
 
 ## Estrutura do Projeto
-confs-apache2/
-confs-mysql/
-site-frontend/
-site-backend/
-apresentacoes/
-
+- `confs-apache2/`
+- `confs-mysql/`
+- `site-frontend/`
+- `site-backend/`
+- `apresentacoes/`
 
 ## Sites Configurados
 - Frontend: `controletarefas.com.br`
@@ -51,4 +51,6 @@ apresentacoes/
 4. Acessar o frontend e o backend pelo navegador.
 
 ## Autor
-Projeto acadêmico – Técnico em Informática para Internet – IFRN
+Projeto acadêmico – Técnico em Informática para Internet – IFRN  
+Disciplina: Instalação e Configuração de Servidores  
+Professor: Thiago Dutra
