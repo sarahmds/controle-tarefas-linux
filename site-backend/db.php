@@ -1,5 +1,12 @@
-
 <?php
-$conn = new mysqli("localhost","controle_user","senha","controletarefas");
-if($conn->connect_error){ die("Erro DB"); }
+$host = "192.168.100.20";
+$user = "vidabichos";
+$pass = "123456";
+$db   = "vidabichos";
+
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+if (!$conn) {
+    die("Erro na conexão.");
+}
 ?>
