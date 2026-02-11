@@ -60,3 +60,4 @@ Professor: Thiago Dutra
 ## Componentes
 - Sarah Medeiros dos Santos
 - Gabriel Carrilho da Silva
+- João Pedro Nascimento da Silva
