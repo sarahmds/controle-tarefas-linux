@@ -1,18 +1,36 @@
 
-<?php include 'db.php'; ?>
-<h2>Tarefas</h2>
-<form method="post">
-<input name="titulo" placeholder="Título">
-<textarea name="descricao"></textarea>
-<input name="usuario_id" placeholder="ID Usuário">
-<button name="add">Adicionar</button>
-</form>
 <?php
-if(isset($_POST['add'])){
-$conn->query("INSERT INTO tarefas VALUES (NULL,'$_POST[titulo]','$_POST[descricao]',$_POST[usuario_id])");
+include 'db.php';
+
+if(isset($_POST['nome'])){
+    $nome = $_POST['nome'];
+    mysqli_query($conn, "INSERT INTO categorias (nome) VALUES ('$nome')");
 }
-$res=$conn->query("SELECT * FROM tarefas");
-while($t=$res->fetch_assoc()){
-echo "$t[id] - $t[titulo] (Usuário $t[usuario_id])<br>";
+
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    mysqli_query($conn, "DELETE FROM categorias WHERE id=$id");
 }
+
+$result = mysqli_query($conn, "SELECT * FROM categorias");
 ?>
+
+<h2>Categorias</h2>
+
+<form method="POST">
+    Nome: <input type="text" name="nome" required>
+    <button type="submit">Cadastrar</button>
+</form>
+
+<table border="1">
+<tr><th>ID</th><th>Nome</th><th>Ação</th></tr>
+
+<?php while($row = mysqli_fetch_assoc($result)) { ?>
+<tr>
+    <td><?php echo $row['id']; ?></td>
+    <td><?php echo $row['nome']; ?></td>
+    <td><a href="?delete=<?php echo $row['id']; ?>">Excluir</a></td>
+</tr>
+<?php } ?>
+
+</table>
