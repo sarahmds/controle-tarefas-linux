@@ -1,63 +1,123 @@
-# ControleTarefas Linux
+# Vida dos Bichos Linux
 
 Projeto desenvolvido para a disciplina **Instalação e Configuração de Servidores** do IFRN.
 
+---
+
 ## Objetivo
-Demonstrar a implantação e configuração de uma aplicação web em ambiente Linux, utilizando servidor Apache2, banco de dados MySQL/MariaDB e linguagem PHP, com dois sites configurados (frontend e backend) e entidades relacionadas com operações CRUD.
+
+Demonstrar a implantação e configuração de uma aplicação web em ambiente Linux, utilizando servidor Apache2, banco de dados MySQL/MariaDB e linguagem PHP, com dois sites configurados (frontend e backend) e entidades relacionadas com operações CRUD completas.
+
+---
 
 ## Tecnologias Utilizadas
+
 - Sistema Operacional: Debian Linux
 - Servidor Web: Apache2
 - Linguagem de Programação: PHP
 - Banco de Dados: MySQL/MariaDB
 - Versionamento: Git e GitHub
 
+---
+
+## Arquitetura do Projeto
+
+O projeto foi estruturado com:
+
+- 1 Servidor Web (Debian + Apache2 + PHP)
+- 1 Servidor de Banco de Dados (Debian + MariaDB)
+- 1 Máquina Cliente para acesso via navegador
+
+A comunicação entre o servidor Web e o Banco de Dados ocorre via rede interna, utilizando usuário específico da aplicação.
+
+---
+
 ## Entidades do Sistema
-- **Usuário**
-- **Tarefa**
+
+- **Categorias**
+- **Produtos**
 
 ### Relacionamento
-- Um usuário pode possuir várias tarefas (1:N).
+
+Uma categoria pode possuir vários produtos (1:N).
+
+- Cada produto pertence a uma única categoria.
+- A relação é implementada através de chave estrangeira (FOREIGN KEY).
+
+---
 
 ## Funcionalidades (CRUD)
 
-### Usuário
-- Cadastrar usuário
-- Listar usuários
-- Editar usuário
-- Excluir usuário
+### Categorias
+- Cadastrar categoria
+- Listar categorias
+- Editar categoria
+- Excluir categoria
 
-### Tarefa
-- Cadastrar tarefa
-- Listar tarefas
-- Editar tarefa
-- Excluir tarefa
+### Produtos
+- Cadastrar produto
+- Listar produtos
+- Editar produto
+- Excluir produto
+
+---
 
 ## Sites Configurados
-- **Frontend:** `controletarefas.com.br`  
-  Interface voltada ao usuário final.
-- **Backend:** `controletarefas.backend.biz`  
-  Área administrativa da aplicação, protegida por autenticação via `.htaccess`.
+
+### Frontend
+`vidabichos.com.br`
+
+Interface voltada ao usuário final.
+Permite visualização das categorias e produtos cadastrados.
+
+(Bônus) Utilização de framework CSS para melhoria visual.
+
+---
+
+### Backend
+`vidabichos.backend.biz`
+
+Área administrativa da aplicação.
+
+Permite:
+- Gerenciamento completo de categorias
+- Gerenciamento completo de produtos
+
+Protegido por autenticação via `.htaccess` no Apache2.
+
+---
 
 ## Estrutura do Projeto
-- confs-apache2/
-- confs-mysql/
-- site-frontend/
-- site-backend/
-- apresentacoes/
+
+- **confs-apache2** → Arquivos de configuração dos VirtualHosts e logs de acesso.
+- **confs-mysql** → Script SQL do banco, Diagrama ER e prints de conexão.
+- **site-frontend** → Código do site público.
+- **site-backend** → Código do painel administrativo.
+- **apresentacoes** → Slides e vídeos demonstrativos.
+
+---
 
 ## Execução do Projeto
-1. Configurar o Apache2 com os dois Virtual Hosts.
-2. Criar o banco de dados e as tabelas utilizando o script SQL fornecido.
-3. Configurar as credenciais de acesso ao banco de dados no PHP.
-4. Acessar o frontend e o backend por meio do navegador web.
+
+1. Configurar os VirtualHosts no Apache2.
+2. Criar o banco de dados utilizando o script SQL disponibilizado.
+3. Criar usuário da aplicação no MariaDB.
+4. Configurar credenciais no arquivo de conexão PHP.
+5. Reiniciar serviços.
+6. Acessar os domínios via navegador.
+
+---
 
 ## Autor
+
 Projeto acadêmico – IFRN  
 Disciplina: Instalação e Configuração de Servidores  
 Professor: Thiago Dutra
 
+---
+
 ## Componentes
-- Sarah Medeiros dos Santos
-- Gabriel Carrilho da Silva
+
+- Sarah Medeiros dos Santos  
+- Gabriel Carrilho da Silva  
 - João Pedro Nascimento da Silva
